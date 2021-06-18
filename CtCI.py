@@ -1,15 +1,16 @@
 # This file contains the solutions and tests for each problem in Cracking the Coding interview
-# To use this file, you first need to initialize the class CtCl
+# To use this file, you first need to initialize the class CtCi
 # Next initialize the
-# To run a particular question, use each is referenced by just the name of the question i.e. CtCl.Is_Unique(inputs)
-# Each question will refer to the class CtCl.Unit_Tests.<Name of Function> and print the results of the function and
+# To run a particular question, use each is referenced by just the name of the question i.e. CtCi.Is_Unique(inputs)
+# Each question will refer to the class CtCi.Unit_Tests.<Name of Function> and print the results of the function and
 # each unit test run in that group
-# The function CtCl.Run_All(), you guessed it, runs all the Units Tests in the file for each question
+# The function CtCi.Run_All(), you guessed it, runs all the Units Tests in the file for each question
 
-def CtCl():
+class CtCi():
 
     #Chapter 1 Problems
-    def Is_Unique(input,additional_structures):
+
+    def is_unique(input, additional_structures = True):
         """
         :param input: in the form "foo"
         :param additional_structures: is a boolean for if we are allowed to use additional data structures
@@ -29,7 +30,7 @@ def CtCl():
                     if input[i]==input[j]:
                         return False
             return True
-    def Check_Permutation(input):
+    def check_permutation(input):
         """
         :param input: This should be in the form [string1, string2]
         """
@@ -63,7 +64,7 @@ def CtCl():
         """
         #takes the first n chars (input[1]) in the string (input[0]) and splits along " " then joins along %20
         return "%20".join(input[0][:input[1]].split(" "))
-    def Palindrome_Permutation(input):
+    def palindrome_permutation(input):
         #check if its a permutation of a palindromw
         #we first must remove all special characters. Then lowercase the string.
         input = ''.join(char.lower() for char in input if char.isalpha())
@@ -79,7 +80,7 @@ def CtCl():
             return False
         else:
             return True
-    def One_Away(input):
+    def one_away(input):
         """
         :param input: should be in the form [string1, string2]
         """
@@ -120,7 +121,7 @@ def CtCl():
                     if differences == 2:
                         return False
             return True
-    def String_Compression(input):
+    def string_compression(input):
         """
         :param input: str "foo"
         :return: original string or compressed string, whichever is shorter
@@ -145,7 +146,7 @@ def CtCl():
             return input
         else:
             return s
-    def Rotate_Matrix(input):
+    def rotate_matrix(input):
         """
         :param input: this is in matrix form [[1,2,3],[4,5,6],[7,8,9]]
         """
@@ -160,7 +161,7 @@ def CtCl():
                 input[n-1-j][i    ] = input[n-1-i][n-1-j]
                 input[n-1-i][n-1-j] = input[j    ][n-1-i]
                 input[j    ][n-1-i] = tmp
-    def Zero_Matrix(input):
+    def zero_matrix(input):
         """
         :param input: this is in matrix form [[1,2,3],[4,5,6],[7,8,9]] in range MxN
         """
@@ -193,7 +194,7 @@ def CtCl():
                 pass
 
         return input
-    def String_Rotation(input):
+    def string_rotation(input):
         #assuming you have a function which checks if a string is a substring of another, write code to check if s2 is a rotation of s1
         #say s1="waterbottle", s2 = "erbottlewat" - all we need to do is s1+s1, "wat[erbottlewat]erbottle" and make sure the lengths are the same
         if len(input[0])==len(input[1]):
@@ -203,7 +204,7 @@ def CtCl():
             return False
 
     #Chapter 2 Problems
-    def Remove_Dups(input):
+    def remove_dups(input):
         if input.next==None:
             return None
         else:
@@ -211,41 +212,199 @@ def CtCl():
                 input.next = input.next.next
             else:
                 input = input.next
+    def kth_to_last(input):
+    def delete_middle_node(input):
+    def partition(input):
+    def sum_lists(input):
+    def palindrome(input):
+    def intersection(input):
+    def loop_detection(input):
+
+    #Chapter 3 Problems
+    def three_in_one(input):
+        #python is particularly good at this. Stacks are obvious.
+        stack = input
+        r_stack = input[::-1]
+        queue = input
+        #we can now use stuff like stack[-1] to view the top, we can use stack.pop(), stack.append()
+        # we can now use stuff like r_stack[-1] to view the top, we can use r_stack.pop(), r_stack.append()
+        # we can now use stuff like queue[_] to view the whatever we need, we can use stack.pop(0), stack.append()
+        return stack, r_stack, queue
+    def stack_min():
+        #when we initialize the class we must initialize the stacks
+        stack = []
+        min_stack = []
+        def push(self,input): #if the new number is equal to or smaller than the min, add it both stacks
+            stack.append(input)
+            if input<=min_stack[-1]:
+                min_stack.append(input)
+        def pop(self): #if the pop value is the min value remove it from both stacks
+            if stack.pop()==min_stack[-1]:
+                min_stack.pop()
+        def min(self): #just returns the min
+            return min_stack[-1]
+    def stack_of_plates():
+        def SetOfStacks():
+            set_of_stacks = [[]]
+            capacity = 5
+
+            def push(self,input):
+                if len(self.set_of_stacks[-1])==self.capacity:
+                    self.set_of_stacks.append([input])
+                else:
+                    self.set_of_stacks[-1].append(input)
+
+            def pop(self):#This will always pop, but it might need to remove an empty stack
+                self.set_of_stacks[-1].pop()
+                if len(self.set_of_stacks[-1])==0:
+                    self.set_of_stacks.pop()
+    def queue_via_stacks():
+        def MyQueue():
+            queue = []
+            r_queue = []
+            tmp = []
+            def add(self,input):
+                self.queue.append(input)
+                if isEmpty(self.tmp):
+                    self.tmp = input
+            def remove(self):
+                while not isEmpty(self.queue):
+                    self.r_queue.append(self.queue.pop())
+                self.r_queue.pop()
+                self.tmp = self.r_queue[-1]
+                while not isEmpty(self.r_queue):
+                    queue.append(self.r_queue.pop())
+
+            def peek(self):
+                return self.tmp
+            def isEmpty(input):
+                try:
+                    input[-1]
+                    return False
+                except:
+                    return True
+    def sort_stack(input):
+        # we are gonna make a slight modification here, this stack will be input as an array but treated as a stack
+        tmp_stack = []
+        while len(input)!=0:
+            try:
+                while input[-1]<tmp_stack[-1]:
+                    tmp = input.pop()
+                    input.append(tmp_stack.pop())
+                    input.append(tmp)
+            except:
+                pass
+            tmp_stack.append(input.pop())
+        return tmp_stack
+    def animal_shelter(input):
+        """
+        :param input: is in the format "D" or "C"
+        """
+        #Initiates the queue
+        queue = []
+
+        #append to the end
+        def enqueue(self,input):
+            self.queue.append(input)
+
+        #removes the first element
+        def dequeueAny(self):
+            self.queue.pop(0)
+
+        #next two functions search for the next D or C in queue and removes that element
+        def dequeueDog(self):
+            for i in range(len(self.queue)):
+                if self.queue[i]=="D":
+                    self.queue.pop(i)
+                    break
+
+        def dequeueCat(self):
+            for i in range(len(self.queue)):
+                if self.queue[i]=="C":
+                    self.queue.pop(i)
+                    break
+
+    #Chapter 4 Problems
+    class Node:
+
+        def __init__(self, input):
+
+            self.left = None
+            self.right = None
+            self.value = input
 
 
 
-    def Kth_to_Last(input):
-    def Delete_Middle_Node(input):
-    def Partition(input):
-    def Sum_Lists(input):
-    def Palindrome(input):
-    def Intersection(input):
-    def Loop_Detection(input):
+
+    def route_between_nodes(input, graph): #actually very hard
+        """
+        :param input: in the form ["S","E"]
+        :param graph: in the form of a dictionary
+        """
+        path_one_queue = [input[0]]
+        path_two_queue = [input[1]]
+        path_one = []
+        path_two = []
+        while True:
+            while not path_one_queue==[]:
+                path_one.append(path_two_queue.pop())
+                path_one_queue = graph[path_one[-1]]
+            while not path_two_queue == []:
+                path_two.append(path_two_queue.pop())
+                path_two_queue = graph[path_two[-1]]
+                    graph[path_two[0]]:
+                #very complicated, graph[connection] will return a list of nodes. For each of those nodes check if it is in path_two
+                for node in graph[connection]:
+                    if node in path_two:
+                        path.append(node)
 
 
+    def minimal_tree(self,input):
+        #breaks the array into three chunks where the upper of the middle is the node value. Then splits into left and right
+        l = len(input)
+        node = self.Node(input[l // 2])
+        left = input[:l//2]
+        right = input[l // 2 + 1:]
+
+        #left will always have at least one so we can either set the value or expand the tree
+        if len(left)==1:
+            node.left = left
+        else:
+            node.left = self.minimal_tree(left)
+
+        #right can be empty, one, or more so we need to check
+        if len(right)==0:
+            pass
+        elif len(right)==1:
+            node.right = right
+        else:
+            node.right = self.minimal_tree(right)
+
+        #return the node
+        return node
+
+    def list_of_depth(self,input):
+        #takes a binary tree and return a linked list for each depth
+        def recursive_add
+        list_of_lists.append(input.value)
+        list_of_lists.append([])
+        list_of_lists.append
+
+    def check_balanced():
+    def validate_bst():
+    def successor():
+    def build_order():
+    def first_common_ancestor():
+    def bst_sequences():
+    def check_subtree():
+    def random_node():
+    def paths_with_sum():
 
 
 
 
 
     def Unit_Tests(self):
-        def Is_Unique(self):
-
-        def Check_Permutation(self):
-
-        def URLify(self):
-
-        def Palindrome_Permutation(self):
-
-        def One_Away(self):
-
-        def String_Compression(self):
-
-        def Rotate_Matrix(self):
-
-        def Zero_Matrix(self):
-
-        def String_Rotation(self):
 
     def Run_All(self):
 
