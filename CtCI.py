@@ -6,11 +6,11 @@
 # each unit test run in that group
 # The function CtCi.Run_All(), you guessed it, runs all the Units Tests in the file for each question
 
-class CtCi():
+class CtCi:
 
     #Chapter 1 Problems
 
-    def is_unique(input, additional_structures = True):
+    def is_unique(self, input, additional_structures = True):
         """
         :param input: in the form "foo"
         :param additional_structures: is a boolean for if we are allowed to use additional data structures
@@ -30,7 +30,7 @@ class CtCi():
                     if input[i]==input[j]:
                         return False
             return True
-    def check_permutation(input):
+    def check_permutation(self, input):
         """
         :param input: This should be in the form [string1, string2]
         """
@@ -58,13 +58,13 @@ class CtCi():
             return True
         else:
             return False
-    def URLify(input):
+    def URLify(self, input):
         """
         :param input: is in the format ["string", true length of string: int]
         """
         #takes the first n chars (input[1]) in the string (input[0]) and splits along " " then joins along %20
         return "%20".join(input[0][:input[1]].split(" "))
-    def palindrome_permutation(input):
+    def palindrome_permutation(self, input):
         #check if its a permutation of a palindromw
         #we first must remove all special characters. Then lowercase the string.
         input = ''.join(char.lower() for char in input if char.isalpha())
@@ -80,7 +80,7 @@ class CtCi():
             return False
         else:
             return True
-    def one_away(input):
+    def one_away(self, input):
         """
         :param input: should be in the form [string1, string2]
         """
@@ -121,7 +121,7 @@ class CtCi():
                     if differences == 2:
                         return False
             return True
-    def string_compression(input):
+    def string_compression(self, input):
         """
         :param input: str "foo"
         :return: original string or compressed string, whichever is shorter
@@ -146,7 +146,7 @@ class CtCi():
             return input
         else:
             return s
-    def rotate_matrix(input):
+    def rotate_matrix(self, input):
         """
         :param input: this is in matrix form [[1,2,3],[4,5,6],[7,8,9]]
         """
@@ -161,7 +161,7 @@ class CtCi():
                 input[n-1-j][i    ] = input[n-1-i][n-1-j]
                 input[n-1-i][n-1-j] = input[j    ][n-1-i]
                 input[j    ][n-1-i] = tmp
-    def zero_matrix(input):
+    def zero_matrix(self, input):
         """
         :param input: this is in matrix form [[1,2,3],[4,5,6],[7,8,9]] in range MxN
         """
@@ -194,7 +194,7 @@ class CtCi():
                 pass
 
         return input
-    def string_rotation(input):
+    def string_rotation(self, input):
         #assuming you have a function which checks if a string is a substring of another, write code to check if s2 is a rotation of s1
         #say s1="waterbottle", s2 = "erbottlewat" - all we need to do is s1+s1, "wat[erbottlewat]erbottle" and make sure the lengths are the same
         if len(input[0])==len(input[1]):
@@ -204,7 +204,7 @@ class CtCi():
             return False
 
     #Chapter 2 Problems
-    def remove_dups(input):
+    def remove_dups(self, input):
         if input.next==None:
             return None
         else:
@@ -212,16 +212,16 @@ class CtCi():
                 input.next = input.next.next
             else:
                 input = input.next
-    def kth_to_last(input):
-    def delete_middle_node(input):
-    def partition(input):
-    def sum_lists(input):
-    def palindrome(input):
-    def intersection(input):
-    def loop_detection(input):
+    def kth_to_last(self, input):
+    def delete_middle_node(self, input):
+    def partition(self, input):
+    def sum_lists(self, input):
+    def palindrome(self, input):
+    def intersection(self, input):
+    def loop_detection(self, input):
 
     #Chapter 3 Problems
-    def three_in_one(input):
+    def three_in_one(self, input):
         #python is particularly good at this. Stacks are obvious.
         stack = input
         r_stack = input[::-1]
@@ -230,7 +230,7 @@ class CtCi():
         # we can now use stuff like r_stack[-1] to view the top, we can use r_stack.pop(), r_stack.append()
         # we can now use stuff like queue[_] to view the whatever we need, we can use stack.pop(0), stack.append()
         return stack, r_stack, queue
-    def stack_min():
+    def stack_min(self):
         #when we initialize the class we must initialize the stacks
         stack = []
         min_stack = []
@@ -243,8 +243,8 @@ class CtCi():
                 min_stack.pop()
         def min(self): #just returns the min
             return min_stack[-1]
-    def stack_of_plates():
-        def SetOfStacks():
+    def stack_of_plates(self):
+        def SetOfStacks(self):
             set_of_stacks = [[]]
             capacity = 5
 
@@ -258,8 +258,8 @@ class CtCi():
                 self.set_of_stacks[-1].pop()
                 if len(self.set_of_stacks[-1])==0:
                     self.set_of_stacks.pop()
-    def queue_via_stacks():
-        def MyQueue():
+    def queue_via_stacks(self):
+        def MyQueue(self):
             queue = []
             r_queue = []
             tmp = []
@@ -283,7 +283,7 @@ class CtCi():
                     return False
                 except:
                     return True
-    def sort_stack(input):
+    def sort_stack(self, input):
         # we are gonna make a slight modification here, this stack will be input as an array but treated as a stack
         tmp_stack = []
         while len(input)!=0:
@@ -296,7 +296,7 @@ class CtCi():
                 pass
             tmp_stack.append(input.pop())
         return tmp_stack
-    def animal_shelter(input):
+    def animal_shelter(self, input):
         """
         :param input: is in the format "D" or "C"
         """
@@ -336,29 +336,42 @@ class CtCi():
 
 
 
-    def route_between_nodes(input, graph): #actually very hard
+    def route_between_nodes(self, input, graph): #actually very hard
         """
         :param input: in the form ["S","E"]
         :param graph: in the form of a dictionary
         """
         path_one_queue = [input[0]]
         path_two_queue = [input[1]]
-        path_one = []
-        path_two = []
-        while True:
-            while not path_one_queue==[]:
-                path_one.append(path_two_queue.pop())
-                path_one_queue = graph[path_one[-1]]
-            while not path_two_queue == []:
-                path_two.append(path_two_queue.pop())
-                path_two_queue = graph[path_two[-1]]
-                    graph[path_two[0]]:
-                #very complicated, graph[connection] will return a list of nodes. For each of those nodes check if it is in path_two
-                for node in graph[connection]:
-                    if node in path_two:
-                        path.append(node)
+        p1dict = dict()
+        p2dict = dict()
+        while path_one_queue or path_two_queue:
+            while path_one_queue:
+                tmp = path_one_queue.pop(0)
+                try:
+                    p2dict[tmp]
+                    return True
+                except:
+                    try:
+                        p1dict[tmp]
+                    except:
+                        p1dict[tmp] = 1
+                        for item in graph[tmp]
+                            path_one_queue.append(item)
 
-
+            while path_two_queue:
+                tmp = path_two_queue.pop(0)
+                try:
+                    p1dict[tmp]
+                    return True
+                except:
+                    try:
+                        p2dict[tmp]
+                    except:
+                        p2dict[tmp] = 1
+                        for item in graph[tmp]
+                            path_two_queue.append(item)
+        return False
     def minimal_tree(self,input):
         #breaks the array into three chunks where the upper of the middle is the node value. Then splits into left and right
         l = len(input)
@@ -382,20 +395,134 @@ class CtCi():
 
         #return the node
         return node
-
     def list_of_depth(self,input):
-        #takes a binary tree and return a linked list for each depth
-        def recursive_add
-        list_of_lists.append(input.value)
-        list_of_lists.append([])
-        list_of_lists.append
+        #takes a binary tree and return a linked list for each depth, we assume at least 1 value
+        #to start we have an empty list of LL and set the top node as our next queue
+        linked_list_list = []
+        next_queue = input
 
-    def check_balanced():
-    def validate_bst():
+        #while there are still next level
+        while next_queue:
+            #we move the next queue into the current queue
+            queue = next_queue[:]
+            #and create empty next queue and current linked list
+            next_queue = []
+            linked_list = []
+            while queue:
+                #this will remove the array like a queue, add its current value to the linked list
+                tmp = queue.pop(0)
+                linked_list.append(tmp.value)
+                #adds children or roots to the next queue
+                if not tmp.left is None:
+                    next_queue.append(tmp.left)
+                if not tmp.right is None:
+                    next_queue.append(tmp.right)
+            linked_list_list.append(linked_list)
+
+        return linked_list_list
+    def check_balanced(self,input,depth = 0):
+        #check if we are at the end, if we are return the depth otherwise check the subtree
+        if input.left is None:
+            ld = depth
+        else:
+            ld = check_balanced(input.left, depth = depth + 1)
+
+        #False indicates a trigger so return the trigger
+        if ld == False:
+            return False
+
+        # check if we are at the end, if we are return the depth otherwise check the subtree
+        if input.right is None:
+            rd = depth
+        else:
+            rd = check_balanced(input.right, depth = depth + 1)
+
+        # False indicates a trigger so return the trigger
+        if rd == False:
+            return False
+
+        #Now we should have depths of the children
+        #if the difference between the children sub tree is more than 1 return false
+        #Otherwise if we are at node 0, return True, otherwise pass up the max value
+        if abs(ld-rd)>1:
+            return False
+        else:
+            if depth ==0:
+                return True
+            else:
+                return max(ld,rd)
+    def validate_bst(self, input, depth = 0):
+
+        #if we encounter an empty left or right node, put a (min, max) = (input val, input val)
+        #otherwise validate the subtree
+        if input.left:
+            left_val = validate_bst(input.left, depth = depth + 1)
+        else:
+            left_val = (input.value,input.value)
+
+        if input.right:
+            right_val = validate_bst(input.right, depth = depth + 1)
+        else:
+            right_val = (input.value,input.value)
+
+        #propogate False upwards
+        if left_val==False or right_val==False:
+            return False
+
+        #check we want the (min, max) of the left to be less than or equal to the input value
+        #and we want input value to be less than the (min, max) of the right tree
+        if left_val[0] <= left_val[1] <= input.value <= right_val[0] <= right_val[1]:
+            if depth == 0:
+                return True
+            else:
+                return (left_val[0],right_val[1])
+        else:
+            return False
+
     def successor():
-    def build_order():
-    def first_common_ancestor():
-    def bst_sequences():
+
+    def build_order(self, projects, dependencies):
+
+    def first_common_ancestor(self, input):
+        #input in shape [node,node]
+        #I assume we have a link to the parents
+        #I also assume we know the depth
+        node1 = input[0]
+        node2 = input[1]
+        while node1!=node2:
+            if node1.depth>=node2.depth:
+                node1 = node1.parent
+            else:
+                node2 = node2.parent
+        return node1
+
+    def bst_sequences(self, input):
+        #create blank arrays
+        new_array, left, right = [], [], []
+        #if the node is a deadend, just return the array of itself
+        if not input.left and not input.right:
+            return [[input.value]]
+
+        #get the permutations of the left branch
+        if input.left:
+            left = self.bst_sequences(input.left)
+        #get the permutations of the right branch
+        if input.right:
+            right = self.bst_sequences(input.right)
+
+        #checks if there is a blank left or right and shortens calc times
+        # the oup
+        if not left:
+            return [[input.value] + r for r in right]
+        elif not right:
+            return [[input.value] + l for l in left]
+        else:
+            for l in left:
+                for r in right:
+                    new_array.append([input.value]+l+r)
+                    new_array.append([input.value]+r+l)
+        return new_array
+
     def check_subtree():
     def random_node():
     def paths_with_sum():
